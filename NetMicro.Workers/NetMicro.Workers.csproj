@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.0.1</PackageVersion>
+        <AssemblyVersion>0.0.1</AssemblyVersion>
+        <Copyright>Bartosz Gołek@2019</Copyright>
+        <Authors>Bartosz Gołek</Authors>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/NetMicro/NetMicro/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/NetMicro/NetMicro</RepositoryUrl>
+        <PackageTags>microservices;framework</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=2.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\.nuget\packages\microsoft.aspnetcore.hosting.abstractions\2.0.1\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\.nuget\packages\microsoft.extensions.logging.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NetMicro\NetMicro.csproj" />
+    </ItemGroup>
+
+</Project>

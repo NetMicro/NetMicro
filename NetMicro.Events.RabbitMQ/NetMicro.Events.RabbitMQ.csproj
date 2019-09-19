@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.0.1</PackageVersion>
+        <AssemblyVersion>0.0.1</AssemblyVersion>
+        <Copyright>Bartosz Gołek@2019</Copyright>
+        <Authors>Bartosz Gołek</Authors>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/NetMicro/NetMicro/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/NetMicro/NetMicro</RepositoryUrl>
+        <PackageTags>microservices;framework</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NetMicro.Events\NetMicro.Events.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+        <HintPath>..\..\..\.nuget\packages\newtonsoft.json\9.0.1\lib\netstandard1.0\Newtonsoft.Json.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

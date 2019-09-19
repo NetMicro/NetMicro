@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.0.1</PackageVersion>
+        <AssemblyVersion>0.0.1</AssemblyVersion>
+        <Copyright>Bartosz Gołek@2019</Copyright>
+        <Authors>Bartosz Gołek</Authors>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/NetMicro/NetMicro/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/NetMicro/NetMicro</RepositoryUrl>
+        <PackageTags>microservices;framework</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Autofac" Version="4.9.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Owin" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.2.4" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="2.2.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+        <PackageReference Include="NFlags" Version="1.7.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NetMicro.Auth.Jwt.NFlags\NetMicro.Auth.Jwt.NFlags.csproj" />
+      <ProjectReference Include="..\NetMicro.Consul.NFlags\NetMicro.Consul.NFlags.csproj" />
+      <ProjectReference Include="..\NetMicro.Consul\NetMicro.Consul.csproj" />
+      <ProjectReference Include="..\NetMicro.ErrorHandling\NetMicro.ErrorHandling.csproj" />
+      <ProjectReference Include="..\NetMicro.MongoDB.NFlags\NetMicro.MongoDB.NFlags.csproj" />
+      <ProjectReference Include="..\NetMicro.MongoDB\NetMicro.MongoDB.csproj" />
+      <ProjectReference Include="..\NetMicro.Monitoring.Prometheus.NFlags\NetMicro.Monitoring.Prometheus.NFlags.csproj" />
+      <ProjectReference Include="..\NetMicro.Monitoring.Prometheus\NetMicro.Monitoring.Prometheus.csproj" />
+      <ProjectReference Include="..\NetMicro.Routing.Autofac\NetMicro.Routing.Autofac.csproj" />
+      <ProjectReference Include="..\NetMicro.Routing.Owin\NetMicro.Routing.Owin.csproj" />
+      <ProjectReference Include="..\NetMicro.Workers\NetMicro.Workers.csproj" />
+      <ProjectReference Include="..\NetMicro\NetMicro.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

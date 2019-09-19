@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="4.9.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NetMicro.Queues.RabbitMQ\NetMicro.Queues.RabbitMQ.csproj" />
+      <ProjectReference Include="..\NetMicro.RabbitMQ.NFlags\NetMicro.RabbitMQ.NFlags.csproj" />
+    </ItemGroup>
+
+</Project>

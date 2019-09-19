@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.0.1</PackageVersion>
+        <AssemblyVersion>0.0.1</AssemblyVersion>
+        <Copyright>Bartosz Gołek@2019</Copyright>
+        <Authors>Bartosz Gołek</Authors>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/NetMicro/NetMicro/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/NetMicro/NetMicro</RepositoryUrl>
+        <PackageTags>microservices;framework</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MongoDB.Driver" Version="2.8.1" />
+    </ItemGroup>
+
+</Project>

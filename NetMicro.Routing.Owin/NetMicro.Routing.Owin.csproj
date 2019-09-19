@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>0.0.1</PackageVersion>
+        <AssemblyVersion>0.0.1</AssemblyVersion>
+        <Copyright>Bartosz Gołek@2019</Copyright>
+        <Authors>Bartosz Gołek</Authors>
+        <PackageLicenseUrl>https://raw.githubusercontent.com/NetMicro/NetMicro/master/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/NetMicro/NetMicro</RepositoryUrl>
+        <PackageTags>microservices;framework</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\.nuget\packages\microsoft.aspnetcore.http.abstractions\2.0.1\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.0.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\.nuget\packages\microsoft.aspnetcore.http.features\2.0.1\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Primitives, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+        <HintPath>..\..\..\.nuget\packages\microsoft.extensions.primitives\2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NetMicro.Routing\NetMicro.Routing.csproj" />
+    </ItemGroup>
+
+</Project>
