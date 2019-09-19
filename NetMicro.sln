@@ -86,6 +86,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.RabbitMQ", "NetMic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5EC8C9BA-7826-4AC3-B964-A765ED9F48DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.Events.Simple", "NetMicro.Events.Simple\NetMicro.Events.Simple.csproj", "{95A20823-57E1-426E-9E5A-10CD24120E9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -260,6 +262,10 @@ Global
 		{A947828B-9A04-4B2E-8E52-211646369637}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A947828B-9A04-4B2E-8E52-211646369637}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A947828B-9A04-4B2E-8E52-211646369637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95A20823-57E1-426E-9E5A-10CD24120E9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A20823-57E1-426E-9E5A-10CD24120E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A20823-57E1-426E-9E5A-10CD24120E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A20823-57E1-426E-9E5A-10CD24120E9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A6DFEF52-3B6D-4252-BCCF-F958B178002D} = {5EC8C9BA-7826-4AC3-B964-A765ED9F48DE}
