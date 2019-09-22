@@ -2,9 +2,7 @@
 
     <PropertyGroup>
         <TargetFrameworks>netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>0.0.1</PackageVersion>
-        <AssemblyVersion>0.0.1</AssemblyVersion>
+        <Version>0.0.1</Version>
         <Copyright>Bartosz Gołek@2019</Copyright>
         <Authors>Bartosz Gołek</Authors>
         <PackageLicenseUrl>https://raw.githubusercontent.com/NetMicro/NetMicro/master/LICENSE</PackageLicenseUrl>
