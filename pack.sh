@@ -2,10 +2,11 @@
 
 function join_by { local IFS="$1"; shift; echo "$*"; }
 
+ORIG_IFS=${IFS}
 TAG=$(git describe --tags)
 IFS='-'
 read -ra VERSION_A <<< "$TAG"
-IFS=' '
+IFS=${ORIG_IFS}
 
 for csproj in `find . -name '*.csproj'`
 do
