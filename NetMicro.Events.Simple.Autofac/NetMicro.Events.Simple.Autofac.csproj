@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <Version>0.0.1</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="4.9.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NetMicro.Events.Simple\NetMicro.Events.Simple.csproj" />
+      <ProjectReference Include="..\NetMicro.Events\NetMicro.Events.csproj" />
+    </ItemGroup>
+
+</Project>

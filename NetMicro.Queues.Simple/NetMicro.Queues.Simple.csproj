@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+        <Version>0.0.1</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NetMicro.Queues\NetMicro.Queues.csproj" />
+    </ItemGroup>
+
+</Project>

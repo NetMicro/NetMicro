@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
         <Version>0.0.1</Version>
         <Copyright>Bartosz Gołek@2019</Copyright>
         <Authors>Bartosz Gołek</Authors>
