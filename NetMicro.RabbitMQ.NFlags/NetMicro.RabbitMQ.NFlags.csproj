@@ -5,7 +5,7 @@
         <Version>0.0.1</Version>
         <Copyright>Bartosz Gołek@2019</Copyright>
         <Authors>Bartosz Gołek</Authors>
-        <PackageLicenseUrl>https://raw.githubusercontent.com/NetMicro/NetMicro/master/LICENSE</PackageLicenseUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/NetMicro/NetMicro</RepositoryUrl>
         <PackageTags>microservices;framework</PackageTags>
     </PropertyGroup>
