@@ -1,4 +1,5 @@
 using Autofac;
+using NetMicro.ErrorHandling;
 using NetMicro.Routing.Modules;
 
 namespace NetMicro.Bootstrap.Modules
@@ -10,6 +11,9 @@ namespace NetMicro.Bootstrap.Modules
             builder
                 .RegisterType<Bootstrap.ErrorHandlingModule>()
                 .As<IModule>()
+                .SingleInstance();
+            builder
+                .RegisterType<ExceptionStatusCodeMapper>()
                 .SingleInstance();
         }
     }

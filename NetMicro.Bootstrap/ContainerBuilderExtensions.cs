@@ -1,5 +1,8 @@
+using System;
+using System.Net;
 using Autofac;
 using NetMicro.Bootstrap.Modules;
+using NetMicro.ErrorHandling;
 
 namespace NetMicro.Bootstrap
 {
@@ -18,6 +21,11 @@ namespace NetMicro.Bootstrap
         public static void UsePrometheus(this ContainerBuilder builder)
         {
             builder.RegisterModule<PrometheusExtensionModule>();
+        }
+
+        public static void RegisterExceptionStatusCode(this ContainerBuilder builder, Type exceptionType, HttpStatusCode statusCode)
+        {
+            builder.Register(c => new ExceptionStatusCode(exceptionType, statusCode));
         }
     }
 }

@@ -8,7 +8,7 @@ namespace NetMicro.ErrorHandling
 {
     public static class MiddlewareSupportExtensions
     {
-        public static void RestHandleExceptions(this IMiddlewareSupport middlewareSupport)
+        public static void RestHandleExceptions(this IMiddlewareSupport middlewareSupport, ExceptionStatusCodeMapper mapper)
         {
             middlewareSupport.Use(async (context, next) =>
             {
@@ -29,7 +29,7 @@ namespace NetMicro.ErrorHandling
                         switch (mimeTypes.FirstOrDefault())
                         {
                             case MediaTypeNames.Application.Json:
-                                await context.Response.SetJsonResponse(e);
+                                await context.Response.SetJsonResponse(e, mapper);
                                 return;
                             case MediaTypeNames.Text.Html:
                                 await context.Response.SetHtmlResponse(e);

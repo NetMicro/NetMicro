@@ -1,18 +1,17 @@
-using NetMicro.Bootstrap.Config;
 using NetMicro.ErrorHandling;
 using NetMicro.Routing;
 
 namespace NetMicro.Bootstrap
 {
-    public static class MiddlewareSupportExtension
+    public static class MiddlewareSupportExtensions
     {
         public static void UseRestErrorHandling(
             this IMiddlewareSupport middlewareSupport,
-            IDevelopmentConfiguration developmentConfiguration
-        )
+            IDevelopmentConfiguration developmentConfiguration, 
+            ExceptionStatusCodeMapper exceptionStatusCodeMapper)
         {
             if (developmentConfiguration.ErrorHandling)
-                middlewareSupport.RestHandleExceptions();
+                middlewareSupport.RestHandleExceptions(exceptionStatusCodeMapper);
         }
     }
 }
