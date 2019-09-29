@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using NetMicro.Bootstrap.Config;
+using NetMicro.ErrorHandling;
+using NetMicro.ErrorHandling.Autofac;
 using NetMicro.Routing.Autofac;
 using NetMicro.Routing.Owin;
 using Configuration = NetMicro.Routing.Configuration;
@@ -57,7 +59,9 @@ namespace NetMicro.Bootstrap
             builder.RegisterInstance(loggerFactory);
 
             builder.RegisterType<NFlagsDevelopmentConfiguration>().As<IDevelopmentConfiguration>().SingleInstance();
-            builder.RegisterModule<Modules.ErrorHandlingModule>();
+
+            builder.UseErrorHandling();
+            builder.RegisterType<ErrorHandlingConfiguration>().As<IErrorHandlingConfiguration>().SingleInstance();
 
             ConfigureContainer(builder);
 

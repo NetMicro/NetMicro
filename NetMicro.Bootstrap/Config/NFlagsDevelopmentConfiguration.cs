@@ -12,6 +12,5 @@ namespace NetMicro.Bootstrap.Config
         }
 
         public bool DisableSecurity => _commandArgs.GetFlag(DevelopmentFlags.DisableSecurity);
-        public bool ErrorHandling => _commandArgs.GetFlag(DevelopmentFlags.ErrorHandling);
     }
 }

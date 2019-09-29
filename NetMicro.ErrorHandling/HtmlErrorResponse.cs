@@ -8,16 +8,28 @@ namespace NetMicro.ErrorHandling
 {
     public static class HtmlErrorResponse
     {
-        public static async Task SetHtmlResponse(this IResponse response, Exception e)
+        public static async Task SetHtmlResponse(
+            this IResponse response,
+            Exception e,
+            IErrorHandlingConfiguration configuration)
         {
             response.StatusCode = HttpStatusCode.InternalServerError;
             response.SetHeader("Content-Type", MediaTypeNames.Text.Html);
-            await response.WriteBodyAsync(Body(e));
+            await response.WriteBodyAsync(new BodyBuilder(configuration).Body(e));
         }
 
-        private static string Body(Exception e)
+        private class BodyBuilder
         {
-            return $@"<!doctype html>
+            private readonly IErrorHandlingConfiguration _configuration;
+
+            public BodyBuilder(IErrorHandlingConfiguration configuration)
+            {
+                _configuration = configuration;
+            }
+
+            public string Body(Exception exception)
+            {
+                return $@"<!doctype html>
     <html lang=""en"">
         <head>
             <meta charset=""utf-8"">
@@ -26,29 +38,35 @@ namespace NetMicro.ErrorHandling
         </head>
         <body>
             <h1>Exception:</h1>
-            {GetDeepExceptionHtml(e)}
+            {GetDeepExceptionHtml(exception)}
         </body>
     </html>";
-        }
-
-        private static string GetDeepExceptionHtml(Exception e)
-        {
-            var exceptions = "";
-            while (e != null)
-            {
-                exceptions += GetExceptionHtml(e);
-                e = e.InnerException;
             }
 
-            return exceptions;
-        }
+            private string GetDeepExceptionHtml(Exception e)
+            {
+                var exceptions = "";
+                while (e != null)
+                {
+                    exceptions += GetExceptionHtml(e);
+                    e = e.InnerException;
+                }
 
-        private static string GetExceptionHtml(Exception e)
-        {
-            return $@"
-            <p>{e.GetType().FullName}<p>
-            <p>{e.Message}</p>
-            <pre>{e.StackTrace.Replace(Environment.NewLine, "<br>")}</pre>";
+                return exceptions;
+            }
+
+            private string GetExceptionHtml(Exception e)
+            {
+                var html = $@"
+                <p>{e.GetType().FullName}<p>
+                <p>{e.Message}</p>";
+
+                if (_configuration.ShowCallStack)
+                    html += $@"
+                <pre>{e.StackTrace.Replace(Environment.NewLine, "<br>")}</pre>";
+
+                return html;
+            }
         }
     }
 }

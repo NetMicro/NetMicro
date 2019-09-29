@@ -15,13 +15,6 @@ namespace NetMicro.Bootstrap
                     .ConfigPath("Development:DisableSecurity")
                     .EnvironmentVariable("DEVELOPMENT_DISABLE_SECURITY")
                     .Group(DevelopmentGroup)
-                )
-                .RegisterFlag(b => b
-                    .Name(DevelopmentFlags.ErrorHandling)
-                    .Description("Enable error handling")
-                    .ConfigPath("Development:ErrorHandling")
-                    .EnvironmentVariable("DEVELOPMENT_ERROR_HANDLING")
-                    .Group(DevelopmentGroup)
                 );
         }
     }

@@ -24,6 +24,7 @@
       <ProjectReference Include="..\NetMicro.Auth.Jwt.NFlags\NetMicro.Auth.Jwt.NFlags.csproj" />
       <ProjectReference Include="..\NetMicro.Consul.NFlags\NetMicro.Consul.NFlags.csproj" />
       <ProjectReference Include="..\NetMicro.Consul\NetMicro.Consul.csproj" />
+      <ProjectReference Include="..\NetMicro.ErrorHandling.Autofac\NetMicro.ErrorHandling.Autofac.csproj" />
       <ProjectReference Include="..\NetMicro.ErrorHandling\NetMicro.ErrorHandling.csproj" />
       <ProjectReference Include="..\NetMicro.MongoDB.NFlags\NetMicro.MongoDB.NFlags.csproj" />
       <ProjectReference Include="..\NetMicro.MongoDB\NetMicro.MongoDB.csproj" />

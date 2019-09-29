@@ -1,17 +1,17 @@
 using Autofac;
-using NetMicro.ErrorHandling;
 using NetMicro.Routing.Modules;
 
-namespace NetMicro.Bootstrap.Modules
+namespace NetMicro.ErrorHandling.Autofac
 {
     public class ErrorHandlingModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
             builder
-                .RegisterType<Bootstrap.ErrorHandlingModule>()
+                .RegisterType<ErrorHandling.ErrorHandlingModule>()
                 .As<IModule>()
                 .SingleInstance();
+
             builder
                 .RegisterType<ExceptionStatusCodeMapper>()
                 .SingleInstance();

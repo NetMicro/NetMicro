@@ -22,10 +22,5 @@ namespace NetMicro.Bootstrap
         {
             builder.RegisterModule<PrometheusExtensionModule>();
         }
-
-        public static void RegisterExceptionStatusCode(this ContainerBuilder builder, Type exceptionType, HttpStatusCode statusCode)
-        {
-            builder.Register(c => new ExceptionStatusCode(exceptionType, statusCode));
-        }
     }
 }
