@@ -1,12 +1,12 @@
 using Consul;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace NetMicro.Consul
 {
     public static class Consul
     {
-        public static void RegisterWithConsul(this IApplicationLifetime lifetime,
+        public static void RegisterWithConsul(this IHostApplicationLifetime lifetime,
             IConsulConfiguration consulConfiguration, ILoggerFactory loggerFactory)
         {
             if (!consulConfiguration.Enabled)
@@ -14,7 +14,7 @@ namespace NetMicro.Consul
 
             var consulClient = new ConsulClient(config => { config.Address = consulConfiguration.ConsulAddress; });
 
-            var logger = loggerFactory.CreateLogger<IApplicationLifetime>();
+            var logger = loggerFactory.CreateLogger<IHostApplicationLifetime>();
 
             var address = consulConfiguration.ServiceUri;
 

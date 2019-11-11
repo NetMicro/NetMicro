@@ -3,6 +3,7 @@ using System.Linq;
 using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NetMicro.Bootstrap.Config;
 using NetMicro.ErrorHandling;
@@ -19,18 +20,17 @@ namespace NetMicro.Bootstrap
 
         public void Configure(
             IApplicationBuilder app,
-            IHostingEnvironment env,
+            IWebHostEnvironment env,
             ILoggerFactory loggerFactory,
-            IApplicationLifetime lifetime,
+            IHostApplicationLifetime lifetime,
             TConfiguration configuration)
         {
-            loggerFactory.AddConsole();
             var container = BuildContainer(configuration, app, env, loggerFactory, lifetime);
 
             UseNetMicro(container, app, lifetime, loggerFactory);
         }
 
-        private static void UseNetMicro(IContainer container, IApplicationBuilder app, IApplicationLifetime lifetime,
+        private static void UseNetMicro(IContainer container, IApplicationBuilder app, IHostApplicationLifetime lifetime,
             ILoggerFactory loggerFactory)
         {
             var extensions = container.Resolve<IEnumerable<IExtension>>().ToArray();
@@ -46,9 +46,9 @@ namespace NetMicro.Bootstrap
         private IContainer BuildContainer(
             TConfiguration configuration,
             IApplicationBuilder app,
-            IHostingEnvironment env,
+            IWebHostEnvironment env,
             ILoggerFactory loggerFactory,
-            IApplicationLifetime lifetime
+            IHostApplicationLifetime lifetime
         )
         {
             var builder = new ContainerBuilder();

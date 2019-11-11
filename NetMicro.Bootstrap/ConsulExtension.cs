@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NetMicro.Consul;
 
@@ -6,12 +6,12 @@ namespace NetMicro.Bootstrap
 {
     public class ConsulExtension : IExtension
     {
-        private readonly IApplicationLifetime _applicationLifetime;
+        private readonly IHostApplicationLifetime _applicationLifetime;
         private readonly IConsulConfiguration _consulConfiguration;
         private readonly ILoggerFactory _loggerFactory;
 
         public ConsulExtension(
-            IApplicationLifetime applicationLifetime,
+            IHostApplicationLifetime applicationLifetime,
             IConsulConfiguration consulConfiguration,
             ILoggerFactory loggerFactory)
         {

@@ -1,15 +1,15 @@
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 namespace NetMicro.Workers
 {
     public class WorkersExtension : IExtension
     {
-        private readonly IApplicationLifetime _applicationLifetime;
+        private readonly IHostApplicationLifetime _applicationLifetime;
         private readonly IEnumerable<IWorker> _workers;
 
         public WorkersExtension(
-            IApplicationLifetime applicationLifetime,
+            IHostApplicationLifetime applicationLifetime,
             IEnumerable<IWorker> workers)
         {
             _applicationLifetime = applicationLifetime;

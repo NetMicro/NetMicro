@@ -1,9 +1,10 @@
 using System.IO;
+using System.Threading.Tasks;
 
 namespace NetMicro.Routing.Binding
 {
     public interface IContentParser
     {
-        TContent Parse<TContent>(Stream stream);
+        Task<TContent> Parse<TContent>(Stream stream);
     }
 }

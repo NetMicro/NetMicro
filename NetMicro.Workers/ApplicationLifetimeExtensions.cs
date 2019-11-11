@@ -1,10 +1,10 @@
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 namespace NetMicro.Workers
 {
     public static class ApplicationLifetimeExtensions
     {
-        public static void AddWorker(this IApplicationLifetime lifetime, IWorker worker)
+        public static void AddWorker(this IHostApplicationLifetime lifetime, IWorker worker)
         {
             if (!worker.IsEnabled)
                 return;

@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="NFlags" Version="1.7.1" />
+      <PackageReference Include="NFlags" Version="1.7.2" />
     </ItemGroup>
 
 </Project>
