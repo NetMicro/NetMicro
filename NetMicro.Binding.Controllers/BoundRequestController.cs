@@ -31,8 +31,11 @@ namespace NetMicro.Binding.Controllers
                 return;
             }
 
+            var content = await _contentParser.Parse<TContent>(_context.Request.Body);
+
+
             await _requestController.Execute(
-                await _contentParser.Parse<TContent>(_context.Request.Body)
+                content
             );
         }
     }
