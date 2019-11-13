@@ -1,9 +1,7 @@
 using Autofac;
 using MongoDB.Driver;
-using NetMicro.MongoDB;
-using NetMicro.MongoDB.NFlags;
 
-namespace NetMicro.Bootstrap.Modules
+namespace NetMicro.MongoDB.NFlags.Autofac
 {
     public class MongoDbExtensionModule : Module
     {

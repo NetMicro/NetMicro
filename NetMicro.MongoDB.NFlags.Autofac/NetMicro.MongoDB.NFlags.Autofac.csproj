@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="4.9.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NetMicro.MongoDB.NFlags\NetMicro.MongoDB.NFlags.csproj" />
+      <ProjectReference Include="..\NetMicro.MongoDB\NetMicro.MongoDB.csproj" />
+    </ItemGroup>
+
+</Project>
