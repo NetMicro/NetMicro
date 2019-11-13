@@ -37,6 +37,10 @@ namespace NetMicro.Bootstrap
             foreach (var extension in extensions)
                 extension.Extend();
 
+            var startupActions = container.Resolve<IEnumerable<IStartupAction>>().ToArray();
+            foreach (var startupAction in startupActions)
+                startupAction.Execute();
+
             app.UseNetMicro(new Configuration
             {
                 Bootstrapper = new AutofacBootstrapper(container)
