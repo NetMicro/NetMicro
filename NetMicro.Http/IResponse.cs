@@ -8,6 +8,6 @@ namespace NetMicro.Http
         HttpStatusCode StatusCode { get; set; }
 
         Task WriteBodyAsync(string body);
-        void SetHeader(string header, string value);
+        void SetHeader(string header, params string[] values);
     }
 }

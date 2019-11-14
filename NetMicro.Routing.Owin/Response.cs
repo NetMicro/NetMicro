@@ -26,9 +26,9 @@ namespace NetMicro.Routing.Owin
             await _httpContext.Response.WriteAsync(body);
         }
 
-        public void SetHeader(string header, string value)
+        public void SetHeader(string header, params string[] values)
         {
-            _httpContext.Response.Headers.Add(header, new StringValues(value));
+            _httpContext.Response.Headers.Add(header, new StringValues(values));
         }
     }
 }
