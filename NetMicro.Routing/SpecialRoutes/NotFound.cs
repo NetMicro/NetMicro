@@ -23,5 +23,10 @@ namespace NetMicro.Routing.SpecialRoutes
                 null,
                 response);
         }
+
+        public void Use(RouteFuncAsyncMiddleware middlewareFunc)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
