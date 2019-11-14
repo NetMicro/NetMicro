@@ -18,9 +18,9 @@ namespace NetMicro.Routing
             return group;
         }
 
-        public Route Add(string method, string name, string path, RouteFuncAsync handler)
+        public IRoute Add(string method, string name, string routePattern, RouteFuncAsync handler)
         {
-            var route = new Route(method, name, path, handler);
+            var route = new Route(method, name, routePattern, handler);
             _routeManager.Add(route);
 
             return route;

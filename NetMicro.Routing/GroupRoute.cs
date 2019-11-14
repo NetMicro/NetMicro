@@ -28,11 +28,12 @@ namespace NetMicro.Routing
                 : null;
         }
 
-        public GroupRoute Add(string method, string name, string route, RouteFuncAsync handler)
+        public IRoute Add(string method, string name, string routePattern, RouteFuncAsync handler)
         {
-            _routeManager.Add(new Route(method, name, GetPrefixedRoute(route), handler));
+            var route = new Route(method, name, GetPrefixedRoute(routePattern), handler);
+            _routeManager.Add(route);
 
-            return this;
+            return route;
         }
 
         private string GetPrefixedRoute(string route)
