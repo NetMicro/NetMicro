@@ -64,7 +64,9 @@ namespace NetMicro.Routing
             var parts = route.Split(new[] {"/"}, StringSplitOptions.RemoveEmptyEntries);
 
             parts = parts.Select(part => !ParamRegex.IsMatch(part)
-                ? part
+                ? part == "*"
+                  ? @".*"
+                  : part
                 : string.Join("",
                     ParamRegex.Matches(part)
                         .Where(match => match.Success)

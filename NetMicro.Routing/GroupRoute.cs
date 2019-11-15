@@ -2,7 +2,7 @@ using NetMicro.Http;
 
 namespace NetMicro.Routing
 {
-    public class GroupRoute : IRoute, IMiddlewareSupport, IRouteConfigurator<GroupRoute>
+    public class GroupRoute : IRoute, IRouteConfigurator
     {
         private readonly IMiddlewareManager _middlewareManager = new MiddlewareManager();
         private readonly string _prefix;

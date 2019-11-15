@@ -116,5 +116,87 @@ namespace NetMicro.Routing.Tests
                 )
             );
         }
+
+        [Fact]
+        public async Task Router_ShouldCallHandlerFunc_IfPatternIsWithAsterisk()
+        {
+            _sut.Add("GET", "home", "/part1/*", _handlerFunc.Handle);
+
+            var request = PrepareRequest("GET", "/part1/part2/part3");
+            await _sut.HandleAsync(request, Substitute.For<IResponse>());
+
+            await _handlerFunc.Received().Handle(Arg.Any<Context>());
+        }
+
+        [Fact]
+        public async Task Router_ShouldCallHandlerFunc_IfPatternIsWithAsteriskInTheMiddle()
+        {
+            _sut.Add("GET", "home", "/part1/*/part3", _handlerFunc.Handle);
+
+            var request = PrepareRequest("GET", "/part1/part2/part3");
+            await _sut.HandleAsync(request, Substitute.For<IResponse>());
+
+            await _handlerFunc.Received().Handle(Arg.Any<Context>());
+        }
+
+        [Fact]
+        public async Task Router_ShouldCallHandlerFunc_IfPatternIsWithArgumentBeforeAsterisk()
+        {
+            _sut.Add("GET", "home", "/:arg1/*/part2/", _handlerFunc.Handle);
+
+            var request = PrepareRequest("GET", "/argument1/part1/part2/");
+            await _sut.HandleAsync(request, Substitute.For<IResponse>());
+
+
+            await _handlerFunc.Received().Handle(
+                Arg.Is<Context>(ctx =>
+                    ctx.SelectedRoute.UriParams["arg1"] == "argument1"
+                )
+            );
+        }
+
+        [Fact]
+        public async Task Router_ShouldCallHandlerFunc_IfPatternIsWithArgumentAfterAsterisk()
+        {
+            _sut.Add("GET", "home", "/part1/*/:arg1", _handlerFunc.Handle);
+
+            var request = PrepareRequest("GET", "/part1/part2/argument1");
+            await _sut.HandleAsync(request, Substitute.For<IResponse>());
+
+
+            await _handlerFunc.Received().Handle(
+                Arg.Is<Context>(ctx =>
+                    ctx.SelectedRoute.UriParams["arg1"] == "argument1"
+                )
+            );
+        }
+
+        [Fact]
+        public async Task Router_ShouldCallHandlerFunc_IfRouteContainMultiplePartsCoveredByAsterisk()
+        {
+            _sut.Add("GET", "home", "/part1/*/partx/", _handlerFunc.Handle);
+
+            var request = PrepareRequest("GET", "/part1/part2/part3/part4/partx");
+            await _sut.HandleAsync(request, Substitute.For<IResponse>());
+
+
+            await _handlerFunc.Received().Handle(Arg.Any<Context>());
+        }
+
+        [Fact]
+        public async Task Router_ShouldCallHandlerFunc_IfRouteContainMultiplePartsCoveredByAsteriskAndHasArgumentAfterIt()
+        {
+            _sut.Add("GET", "home", "/part1/*/:arg1/partx", _handlerFunc.Handle);
+
+            var request = PrepareRequest("GET", "/part1/part2/part3/argument1/partx");
+            await _sut.HandleAsync(request, Substitute.For<IResponse>());
+
+
+            await _handlerFunc.Received().Handle(
+                Arg.Is<Context>(ctx =>
+                    ctx.SelectedRoute.UriParams["arg1"] == "argument1"
+                )
+            );
+        }
     }
 }
