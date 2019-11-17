@@ -33,7 +33,7 @@ namespace NetMicro.Auth.Jwt.Middleware
                 {
                     var payload = tokenDecoder.DecodeToken(token);
 
-                    var tokenExpires = DateTime.FromBinary(payload.exp);
+                    var tokenExpires = ExpDateTimeConverter.ToDateTime(payload.exp);
 
                     if (tokenExpires <= DateTime.UtcNow)
                     {
