@@ -40,6 +40,8 @@ namespace NetMicro.Auth.Jwt.Middleware
                         await Task.Run(() => context.Response.StatusCode = HttpStatusCode.Unauthorized);
                         return;
                     }
+                    
+                    context.Extensions.Register(new Session.Session(payload.username));
 
                     await next(context);
                 }

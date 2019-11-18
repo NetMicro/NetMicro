@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\NetMicro.Auth.Session\NetMicro.Auth.Session.csproj" />
       <ProjectReference Include="..\NetMicro.Routing\NetMicro.Routing.csproj" />
       <ProjectReference Include="..\NetMicro\NetMicro.csproj" />
     </ItemGroup>

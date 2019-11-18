@@ -17,11 +17,9 @@ namespace NetMicro.Controllers.Autofac
 
         public async Task Execute(Context context)
         {
-            using (var requestScope = _scope.BeginLifetimeScope(builder => builder.RegisterContext(context)))
-            {
-                var requestController = requestScope.Resolve<TRequestController>();
-                await requestController.Execute();
-            }
+            using var requestScope = _scope.BeginLifetimeScope(builder => builder.RegisterContext(context));
+            var requestController = requestScope.Resolve<TRequestController>();
+            await requestController.Execute();
         }
     }
 }

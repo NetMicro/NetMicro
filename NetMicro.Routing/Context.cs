@@ -11,10 +11,12 @@ namespace NetMicro.Routing
             SelectedRoute = selectedRoute;
             Request = request;
             Response = response;
+            Extensions = new ContextExtensions();
         }
 
         public SelectedRoute SelectedRoute { get; }
         public Request Request { get; }
         public IResponse Response { get; }
-    }
+        public ContextExtensions Extensions { get; }
+    };
 }
