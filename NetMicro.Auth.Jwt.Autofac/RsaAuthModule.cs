@@ -62,7 +62,7 @@ namespace NetMicro.Auth.Jwt.Autofac
             builder
                 .RegisterType<AccessTokenConfigPasswordFinder>()
                 .As<IPasswordFinder>().SingleInstance()
-                .Named<IKeyProvider>(AccessTokenConfigPasswordFinder);
+                .Named<IPasswordFinder>(AccessTokenConfigPasswordFinder);
         }
 
         private static void RegisterRefreshToken(ContainerBuilder builder)
@@ -100,7 +100,7 @@ namespace NetMicro.Auth.Jwt.Autofac
             builder
                 .RegisterType<RefreshTokenConfigPasswordFinder>()
                 .As<IPasswordFinder>().SingleInstance()
-                .Named<IKeyProvider>(RefreshTokenConfigPasswordFinder);
+                .Named<IPasswordFinder>(RefreshTokenConfigPasswordFinder);
         }
     }
 }
