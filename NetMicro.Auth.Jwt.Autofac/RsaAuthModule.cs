@@ -5,19 +5,19 @@ namespace NetMicro.Auth.Jwt.Autofac
 {
     public class RsaAuthModule : Module
     {
+        public const string AccessTokenGenerator = "AccessTokenGenerator";
+        public const string AccessTokenDecoder = "AccessTokenDecoder";
+
+        public const string RefreshTokenGenerator = "RefreshTokenGenerator";
+        public const string RefreshTokenDecoder = "RefreshTokenDecoder";
+
         private const string AccessTokenPrivateKeyProvider = "AccessTokenPrivateKeyProvider";
         private const string AccessTokenPublicKeyProvider = "AccessTokenPublicKeyProvider";
         private const string AccessTokenSecretProvider = "AccessTokenSecretProvider";
 
-        private const string AccessTokenGenerator = "AccessTokenGenerator";
-        private const string AccessTokenDecoder = "AccessTokenDecoder";
-
         private const string RefreshTokenPrivateKeyProvider = "RefreshTokenPrivateKeyProvider";
         private const string RefreshTokenPublicKeyProvider = "RefreshTokenPublicKeyProvider";
         private const string RefreshTokenSecretProvider = "RefreshTokenSecretProvider";
-
-        private const string RefreshTokenGenerator = "RefreshTokenGenerator";
-        private const string RefreshTokenDecoder = "RefreshTokenDecoder";
 
         protected override void Load(ContainerBuilder builder)
         {
