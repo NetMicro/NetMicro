@@ -8,7 +8,7 @@ namespace NetMicro.Auth.Jwt
 
         public ConfigPasswordFinder(IAuthConfiguration authConfiguration)
         {
-            _password = authConfiguration.Secret.ToCharArray();
+            _password = authConfiguration.AccessTokenSecret.ToCharArray();
         }
 
         public char[] GetPassword()
