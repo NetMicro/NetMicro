@@ -14,10 +14,12 @@ namespace NetMicro.Auth.Jwt.Autofac
         private const string AccessTokenPrivateKeyProvider = "AccessTokenPrivateKeyProvider";
         private const string AccessTokenPublicKeyProvider = "AccessTokenPublicKeyProvider";
         private const string AccessTokenSecretProvider = "AccessTokenSecretProvider";
+        private const string AccessTokenConfigPasswordFinder = "AccessTokenConfigPasswordFinder";
 
         private const string RefreshTokenPrivateKeyProvider = "RefreshTokenPrivateKeyProvider";
         private const string RefreshTokenPublicKeyProvider = "RefreshTokenPublicKeyProvider";
         private const string RefreshTokenSecretProvider = "RefreshTokenSecretProvider";
+        private const string RefreshTokenConfigPasswordFinder = "AccessTokenConfigPasswordFinder";
 
         protected override void Load(ContainerBuilder builder)
         {
@@ -35,7 +37,7 @@ namespace NetMicro.Auth.Jwt.Autofac
 
             builder
                 .Register(c => new RsaTokenGenerator<JwtToken>(
-                    c.ResolveNamed<IPasswordFinder>(AccessTokenSecretProvider),
+                    c.ResolveNamed<IPasswordFinder>(AccessTokenConfigPasswordFinder),
                     c.ResolveNamed<IKeyProvider>(AccessTokenPrivateKeyProvider)
                 ))
                 .As<ITokenGenerator<JwtToken>>()
@@ -50,7 +52,7 @@ namespace NetMicro.Auth.Jwt.Autofac
 
             builder
                 .Register(c => new RsaTokenDecoder<JwtToken>(
-                    c.ResolveNamed<IPasswordFinder>(AccessTokenSecretProvider),
+                    c.ResolveNamed<IPasswordFinder>(AccessTokenConfigPasswordFinder),
                     c.ResolveNamed<IKeyProvider>(AccessTokenPublicKeyProvider)
                 ))
                 .As<ITokenDecoder<JwtToken>>()
@@ -58,9 +60,9 @@ namespace NetMicro.Auth.Jwt.Autofac
                 .SingleInstance();
 
             builder
-                .RegisterType<ConfigPasswordFinder>()
+                .RegisterType<AccessTokenConfigPasswordFinder>()
                 .As<IPasswordFinder>().SingleInstance()
-                .Named<IKeyProvider>(AccessTokenSecretProvider);
+                .Named<IKeyProvider>(AccessTokenConfigPasswordFinder);
         }
 
         private static void RegisterRefreshToken(ContainerBuilder builder)
@@ -73,7 +75,7 @@ namespace NetMicro.Auth.Jwt.Autofac
 
             builder
                 .Register(c => new RsaTokenGenerator<JwtToken>(
-                    c.ResolveNamed<IPasswordFinder>(RefreshTokenSecretProvider),
+                    c.ResolveNamed<IPasswordFinder>(RefreshTokenConfigPasswordFinder),
                     c.ResolveNamed<IKeyProvider>(RefreshTokenPrivateKeyProvider)
                 ))
                 .As<ITokenGenerator<JwtToken>>()
@@ -88,7 +90,7 @@ namespace NetMicro.Auth.Jwt.Autofac
 
             builder
                 .Register(c => new RsaTokenDecoder<JwtToken>(
-                    c.ResolveNamed<IPasswordFinder>(RefreshTokenSecretProvider),
+                    c.ResolveNamed<IPasswordFinder>(RefreshTokenConfigPasswordFinder),
                     c.ResolveNamed<IKeyProvider>(RefreshTokenPublicKeyProvider)
                 ))
                 .As<ITokenDecoder<JwtToken>>()
@@ -96,9 +98,9 @@ namespace NetMicro.Auth.Jwt.Autofac
                 .SingleInstance();
 
             builder
-                .RegisterType<ConfigPasswordFinder>()
+                .RegisterType<RefreshTokenConfigPasswordFinder>()
                 .As<IPasswordFinder>().SingleInstance()
-                .Named<IKeyProvider>(RefreshTokenSecretProvider);
+                .Named<IKeyProvider>(RefreshTokenConfigPasswordFinder);
         }
     }
 }

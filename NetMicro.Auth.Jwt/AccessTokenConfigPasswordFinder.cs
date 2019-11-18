@@ -2,11 +2,11 @@ using Org.BouncyCastle.OpenSsl;
 
 namespace NetMicro.Auth.Jwt
 {
-    public class ConfigPasswordFinder : IPasswordFinder
+    public class AccessTokenConfigPasswordFinder : IPasswordFinder
     {
         private readonly char[] _password;
 
-        public ConfigPasswordFinder(IAuthConfiguration authConfiguration)
+        public AccessTokenConfigPasswordFinder(IAuthConfiguration authConfiguration)
         {
             _password = authConfiguration.AccessTokenSecret.ToCharArray();
         }

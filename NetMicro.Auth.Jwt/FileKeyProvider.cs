@@ -6,10 +6,8 @@ namespace NetMicro.Auth.Jwt
     {
         public FileKeyProvider(string file)
         {
-            using (var sr = new StreamReader(file))
-            {
-                Key = sr.ReadToEnd();
-            }
+            using var sr = new StreamReader(file);
+            Key = sr.ReadToEnd();
         }
 
         public string Key { get; }
