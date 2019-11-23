@@ -2,16 +2,23 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using NetMicro.Http;
 using NetMicro.Routing;
 
 namespace NetMicro.Auth.Jwt.Middleware
 {
     public static class MiddlewareSupportExtensions
     {
-        public static void JwtAuth(this IMiddlewareSupport middlewareSupport, ITokenDecoder<JwtToken> tokenDecoder)
+        public static void JwtAuth(this IMiddlewareSupport middlewareSupport, ITokenDecoder<JwtToken> tokenDecoder, Func<Request, bool> excludeFilter = null)
         {
             middlewareSupport.Use(async (context, next) =>
             {
+                if (excludeFilter != null && excludeFilter(context.Request))
+                {
+                    await next(context);
+                    return;
+                }
+
                 const string jwtHeaderPrefix = "Bearer ";
 
                 if (!context.Request.Headers.ContainsKey("Authorization"))
@@ -40,7 +47,7 @@ namespace NetMicro.Auth.Jwt.Middleware
                         await Task.Run(() => context.Response.StatusCode = HttpStatusCode.Unauthorized);
                         return;
                     }
-                    
+
                     context.Extensions.Register(new Session.Session(payload.username));
 
                     await next(context);
