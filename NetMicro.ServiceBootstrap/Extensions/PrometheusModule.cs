@@ -2,7 +2,7 @@ using NetMicro.Monitoring.Prometheus;
 using NetMicro.Routing;
 using NetMicro.Routing.Modules;
 
-namespace NetMicro.Bootstrap
+namespace NetMicro.ServiceBootstrap.Extensions
 {
     public class PrometheusModule : IModule
     {

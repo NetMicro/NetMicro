@@ -1,7 +1,88 @@
+using System;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using NetMicro.Bootstrap;
+using NFlags;
+using NFlags.Commands;
+
 namespace NetMicro.ServiceBootstrap
 {
-    public class CommandConfiguratorExtensions
+    public static class CommandConfiguratorExtensions
     {
+        public static CommandConfigurator RegisterServiceCommand<TStartup>(
+            this CommandConfigurator configurator, 
+            string commandName,
+            string commandDescription,
+            IGenericConfig configuration,
+            Action<CommandConfigurator, IGenericConfig> additionalConfiguration = null) where TStartup : class
+        {
+            return configurator.RegisterCommand(
+                commandName,
+                commandDescription,
+                c => c.ConfigureService<TStartup>(configuration, additionalConfiguration)
+            );
+        }
         
+        public static CommandConfigurator RegisterDefaultServiceCommand<TStartup>(
+            this CommandConfigurator configurator, 
+            string commandName,
+            string commandDescription,
+            IGenericConfig configuration,
+            Action<CommandConfigurator, IGenericConfig> additionalConfiguration = null) where TStartup : class
+        {
+            return configurator.RegisterDefaultCommand(
+                commandName,
+                commandDescription,
+                c => c.ConfigureService<TStartup>(configuration, additionalConfiguration)
+            );
+        }
+        
+        private static CommandConfigurator ConfigureService<TStartup>(
+            this CommandConfigurator configurator, 
+            IGenericConfig configuration,
+            Action<CommandConfigurator, IGenericConfig> additionalConfiguration = null) where TStartup : class
+        {
+            configurator.RegisterOption<int>(b => b
+                    .Name(ServiceOptions.Port)
+                    .Abr("p")
+                    .Description("Listening port")
+                    .EnvironmentVariable("PORT")
+                    .DefaultValue(5000)
+                )
+                .RegisterDevelopment()
+                .SetExecute((commandArgs, output) =>
+                {
+                    RunKestrelHost<TStartup>(commandArgs, configuration, output);
+                });
+
+            additionalConfiguration?.Invoke(configurator, configuration);
+
+            return configurator;
+        }
+
+        private static void RunKestrelHost<TStartup>(CommandArgs commandArgs, IGenericConfig config, IOutput output)
+            where TStartup : class
+        {
+            var host = new WebHostBuilder()
+                .UseContentRoot(GetContentRoot())
+                .ConfigureServices(collection => collection
+                    .AddSingleton(commandArgs)
+                    .AddSingleton(config)
+                )
+                .ConfigureKestrel(options => options
+                    .ListenAnyIP(commandArgs.GetOption<int>(ServiceOptions.Port))
+                )
+                .UseKestrel()
+                .UseStartup<TStartup>()
+                .Build();
+
+            host.Run();
+        }
+
+        private static string GetContentRoot()
+        {
+            return Directory.GetCurrentDirectory();
+        }
     }
 }

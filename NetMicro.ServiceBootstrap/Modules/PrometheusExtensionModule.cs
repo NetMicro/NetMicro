@@ -2,8 +2,9 @@ using Autofac;
 using NetMicro.Monitoring.Prometheus;
 using NetMicro.Monitoring.Prometheus.NFlags;
 using NetMicro.Routing.Modules;
+using NetMicro.ServiceBootstrap.Extensions;
 
-namespace NetMicro.Bootstrap.Modules
+namespace NetMicro.ServiceBootstrap.Modules
 {
     public class PrometheusExtensionModule : Module
     {

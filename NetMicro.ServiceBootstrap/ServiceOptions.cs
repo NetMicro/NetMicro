@@ -1,4 +1,4 @@
-namespace NetMicro.Bootstrap
+namespace NetMicro.ServiceBootstrap
 {
     public static class ServiceOptions
     {

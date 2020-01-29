@@ -1,6 +1,6 @@
 using NetMicro.ErrorHandling;
 
-namespace NetMicro.Bootstrap.Config
+namespace NetMicro.ServiceBootstrap.Config
 {
     public class ErrorHandlingConfiguration : IErrorHandlingConfiguration
     {

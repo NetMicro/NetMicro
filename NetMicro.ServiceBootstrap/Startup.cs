@@ -5,14 +5,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using NetMicro.Bootstrap.Config;
 using NetMicro.ErrorHandling;
 using NetMicro.ErrorHandling.Autofac;
 using NetMicro.Routing.Autofac;
 using NetMicro.Routing.Owin;
+using NetMicro.ServiceBootstrap.Config;
 using Configuration = NetMicro.Routing.Configuration;
 
-namespace NetMicro.Bootstrap
+namespace NetMicro.ServiceBootstrap
 {
     public abstract class Startup<TConfiguration> where TConfiguration : class
     {
@@ -61,8 +61,6 @@ namespace NetMicro.Bootstrap
             builder.RegisterInstance(app);
             builder.RegisterInstance(lifetime);
             builder.RegisterInstance(loggerFactory);
-
-            builder.RegisterType<NFlagsDevelopmentConfiguration>().As<IDevelopmentConfiguration>().SingleInstance();
 
             builder.UseErrorHandling();
             builder.RegisterType<ErrorHandlingConfiguration>().As<IErrorHandlingConfiguration>().SingleInstance();

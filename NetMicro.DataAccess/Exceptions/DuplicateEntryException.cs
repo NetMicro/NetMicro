@@ -1,4 +1,7 @@
-$HEADER$namespace $NAMESPACE$
+namespace NetMicro.DataAccess.Exceptions
 {
-  public class $CLASS$ {$END$}
+    public class DuplicateEntryException : WriteException
+    {
+        
+    }
 }

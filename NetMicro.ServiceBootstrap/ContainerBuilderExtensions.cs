@@ -1,7 +1,7 @@
 using Autofac;
-using NetMicro.Bootstrap.Modules;
+using NetMicro.ServiceBootstrap.Modules;
 
-namespace NetMicro.Bootstrap
+namespace NetMicro.ServiceBootstrap
 {
     public static class ContainerBuilderExtensions
     {
