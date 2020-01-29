@@ -1,6 +1,6 @@
 namespace NetMicro.Bootstrap
 {
-    public class ServiceConfig
+    public class AppConfig
     {
         public string Name { get; set; }
         public string Description { get; set; }
