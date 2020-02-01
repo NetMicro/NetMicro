@@ -2,6 +2,6 @@
 {
     public static class PrometheusFlags
     {
-        public const string Enabled = "prometheus_enabled";
+        public const string Enabled = "prometheus-enabled";
     }
 }

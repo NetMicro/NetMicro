@@ -65,6 +65,8 @@ namespace NetMicro.ServiceBootstrap
             builder.UseErrorHandling();
             builder.RegisterType<ErrorHandlingConfiguration>().As<IErrorHandlingConfiguration>().SingleInstance();
 
+            builder.RegisterType<NFlagsDevelopmentConfiguration>().As<IDevelopmentConfiguration>().SingleInstance();
+
             ConfigureContainer(builder);
 
             return builder.Build();

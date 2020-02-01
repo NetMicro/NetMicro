@@ -1,6 +1,7 @@
+using NetMicro.Bootstrap;
 using NFlags.Commands;
 
-namespace NetMicro.Bootstrap.Config
+namespace NetMicro.ServiceBootstrap.Config
 {
     public class NFlagsDevelopmentConfiguration : IDevelopmentConfiguration
     {
