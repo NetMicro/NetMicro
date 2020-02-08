@@ -1,4 +1,6 @@
+using System.Buffers;
 using Autofac;
+using NetMicro.Http.Rest;
 using NetMicro.Routing;
 
 namespace NetMicro.Controllers.Autofac
@@ -9,6 +11,7 @@ namespace NetMicro.Controllers.Autofac
         {
             builder.RegisterInstance(context);
             builder.RegisterInstance(context.Request);
+            builder.RegisterInstance(new Query(context.Request.Query));
             builder.RegisterInstance(context.Response);
             builder.RegisterInstance(context.SelectedRoute);
         }
