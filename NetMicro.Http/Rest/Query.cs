@@ -69,5 +69,12 @@ namespace NetMicro.Http.Rest
 
             throw new ParamIsNotNumberException(value);
         }
+
+        public string GetFilterOrDefault(string name, string defaultValue)
+        {
+            return Filter.TryGetValue(name, out string result) 
+                ? result 
+                : defaultValue;
+        }
     }
 }

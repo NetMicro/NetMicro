@@ -127,5 +127,23 @@ namespace NetMicro.Http.Tests.Rest
                 new Http.Rest.Query(QueryStringParser.Parse("sort[a]=asdf")).Order
             );            
         }
+
+        [Fact]
+        public void GetFilterOrDefaultShouldReturnDefaultWhenFilterNotDefinedInQuery()
+        {
+            const string defaultValue = "s";
+
+            var result = new Http.Rest.Query(QueryStringParser.Parse("")).GetFilterOrDefault("name", defaultValue);
+            Assert.Equal(defaultValue, result);
+        }     
+
+        [Fact]
+        public void GetFilterOrDefaultShouldReturnValueWhenFilterDefinedInQuery()
+        {
+            const string value = "s";
+
+            var result = new Http.Rest.Query(QueryStringParser.Parse($"?filter[name]={value}")).GetFilterOrDefault("name", "s");
+            Assert.Equal(value, result);
+        }
     }
 }
