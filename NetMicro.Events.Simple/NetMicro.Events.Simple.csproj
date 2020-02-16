@@ -14,4 +14,8 @@
       <ProjectReference Include="..\NetMicro.Events\NetMicro.Events.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    </ItemGroup>
+
 </Project>

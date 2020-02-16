@@ -1,40 +1,41 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace NetMicro.Events.Simple
 {
-    public class Channel<TEvent>
+    public class Channel
     {
-        private readonly IDictionary<string, IList<EventReceived<TEvent>>> _receivers = new Dictionary<string, IList<EventReceived<TEvent>>>();
+        private static readonly IDictionary<string, IList<EventReceived<string>>> Receivers = new Dictionary<string, IList<EventReceived<string>>>();
         private readonly object _mutex = new object();
 
-        public void AddReceiver(string eventName, EventReceived<TEvent> eventReceived)
+        public void AddReceiver<TEvent>(string eventName, EventReceived<TEvent> eventReceived)
         {
-            if (!_receivers.Keys.Contains(eventName))
+            if (!Receivers.Keys.Contains(eventName))
             {
                 lock (_mutex)
                 {
-                    if (!_receivers.Keys.Contains(eventName))
+                    if (!Receivers.Keys.Contains(eventName))
                     {
-                        _receivers.Add(eventName, new List<EventReceived<TEvent>>());                        
-                    }                    
+                        Receivers.Add(eventName, new List<EventReceived<string>>());
+                    }
                 }
             }
-            
-            _receivers[eventName].Add(eventReceived);
+
+            Receivers[eventName].Add(payload => eventReceived(JsonConvert.DeserializeObject<TEvent>(payload)));
         }
 
-        public void Publish(string eventName, TEvent data)
+        public void Publish<TEvent>(string eventName, TEvent data)
         {
-            if (_receivers.Keys.Contains(eventName))
+            if (Receivers.Keys.Contains(eventName))
             {
                 Task[] tasks = null;
 
                 lock (_mutex)
                 {
-                    tasks = new Task[_receivers[eventName].Count];
-                    for (int i = 0; i < _receivers[eventName].Count; i++)
-                        tasks[i] = _receivers[eventName][i](data);
+                    tasks = new Task[Receivers[eventName].Count];
+                    for (int i = 0; i < Receivers[eventName].Count; i++)
+                        tasks[i] = Receivers[eventName][i](JsonConvert.SerializeObject(data));
                 }
 
                 Task.WaitAll(tasks);

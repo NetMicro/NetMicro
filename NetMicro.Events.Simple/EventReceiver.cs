@@ -4,9 +4,9 @@ namespace NetMicro.Events.Simple
 {
     public class EventReceiver<TEvent> : IEventReceiver<TEvent>
     {
-        private readonly Channel<TEvent> _channel;
+        private readonly Channel _channel;
 
-        public EventReceiver(Channel<TEvent> channel)
+        public EventReceiver(Channel channel)
         {
             _channel = channel;
         }

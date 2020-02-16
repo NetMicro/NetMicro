@@ -4,9 +4,9 @@ namespace NetMicro.Events.Simple
 {
     public class EventEmitter<TEvent> : IEventEmitter<TEvent>
     {
-        private readonly Channel<TEvent> _channel;
+        private readonly Channel _channel;
 
-        public EventEmitter(Channel<TEvent> channel)
+        public EventEmitter(Channel channel)
         {
             _channel = channel;
         }
