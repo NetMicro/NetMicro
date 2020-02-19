@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -17,7 +16,7 @@ namespace NetMicro.Auth.Session
         {
             return (TDataType)_data[key];
         }
-        
+
         public bool Has(string key)
         {
             return _data.Keys.Contains(key);

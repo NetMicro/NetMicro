@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Builder;
-using NetMicro.Monitoring.Prometheus;
 
-namespace NetMicro.ServiceBootstrap.Extensions
+namespace NetMicro.Monitoring.Prometheus
 {
     public class PrometheusExtension : IExtension
     {

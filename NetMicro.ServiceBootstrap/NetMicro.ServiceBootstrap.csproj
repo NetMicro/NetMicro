@@ -16,11 +16,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\NetMicro.Bootstrap\NetMicro.Bootstrap.csproj" />
-      <ProjectReference Include="..\NetMicro.Consul.NFlags\NetMicro.Consul.NFlags.csproj" />
-      <ProjectReference Include="..\NetMicro.Consul\NetMicro.Consul.csproj" />
       <ProjectReference Include="..\NetMicro.ErrorHandling.Autofac\NetMicro.ErrorHandling.Autofac.csproj" />
-      <ProjectReference Include="..\NetMicro.Monitoring.Prometheus.NFlags\NetMicro.Monitoring.Prometheus.NFlags.csproj" />
-      <ProjectReference Include="..\NetMicro.Monitoring.Prometheus\NetMicro.Monitoring.Prometheus.csproj" />
       <ProjectReference Include="..\NetMicro.Routing.Autofac\NetMicro.Routing.Autofac.csproj" />
       <ProjectReference Include="..\NetMicro.Routing.Owin\NetMicro.Routing.Owin.csproj" />
       <ProjectReference Include="..\NetMicro.Routing\NetMicro.Routing.csproj" />

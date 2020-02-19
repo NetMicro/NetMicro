@@ -1,6 +1,6 @@
 using NFlags.Commands;
 
-namespace NetMicro.Queues.RabbitMQ.NFlags
+namespace NetMicro.RabbitMQ.NFlags
 {
     public static class CommandConfiguratorExtensions
     {

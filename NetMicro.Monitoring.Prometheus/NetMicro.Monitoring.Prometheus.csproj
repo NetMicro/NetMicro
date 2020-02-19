@@ -16,7 +16,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\NetMicro.Routing.Modules\NetMicro.Routing.Modules.csproj" />
       <ProjectReference Include="..\NetMicro.Routing\NetMicro.Routing.csproj" />
+      <ProjectReference Include="..\NetMicro\NetMicro.csproj" />
     </ItemGroup>
 
 </Project>

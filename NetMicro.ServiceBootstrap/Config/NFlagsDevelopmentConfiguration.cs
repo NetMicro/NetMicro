@@ -1,4 +1,3 @@
-using NetMicro.Bootstrap;
 using NFlags.Commands;
 
 namespace NetMicro.ServiceBootstrap.Config

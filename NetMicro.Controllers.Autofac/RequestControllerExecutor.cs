@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using Autofac;
-using Autofac.Builder;
 using NetMicro.Routing;
 
 namespace NetMicro.Controllers.Autofac

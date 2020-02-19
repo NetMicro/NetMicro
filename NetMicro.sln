@@ -108,6 +108,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.ServiceBootstrap",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.Http.Tests", "NetMicro.Http.Tests\NetMicro.Http.Tests.csproj", "{C882F23B-1FB3-452F-A30F-6FFBF57F4250}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.Consul.NFlags.Autofac", "NetMicro.Consul.NFlags.Autofac\NetMicro.Consul.NFlags.Autofac.csproj", "{135BC41F-0B3E-4DA6-A54D-9FCE7BBCAA0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.Monitoring.Prometheus.NFlags.Autofac", "NetMicro.Monitoring.Prometheus.NFlags.Autofac\NetMicro.Monitoring.Prometheus.NFlags.Autofac.csproj", "{824B38A6-B235-4587-87BD-EA3E62F3E0FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -326,6 +330,14 @@ Global
 		{C882F23B-1FB3-452F-A30F-6FFBF57F4250}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C882F23B-1FB3-452F-A30F-6FFBF57F4250}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C882F23B-1FB3-452F-A30F-6FFBF57F4250}.Release|Any CPU.Build.0 = Release|Any CPU
+		{135BC41F-0B3E-4DA6-A54D-9FCE7BBCAA0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{135BC41F-0B3E-4DA6-A54D-9FCE7BBCAA0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{135BC41F-0B3E-4DA6-A54D-9FCE7BBCAA0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{135BC41F-0B3E-4DA6-A54D-9FCE7BBCAA0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{824B38A6-B235-4587-87BD-EA3E62F3E0FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{824B38A6-B235-4587-87BD-EA3E62F3E0FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{824B38A6-B235-4587-87BD-EA3E62F3E0FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{824B38A6-B235-4587-87BD-EA3E62F3E0FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A6DFEF52-3B6D-4252-BCCF-F958B178002D} = {5EC8C9BA-7826-4AC3-B964-A765ED9F48DE}

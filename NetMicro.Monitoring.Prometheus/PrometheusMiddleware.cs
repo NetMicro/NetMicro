@@ -13,13 +13,13 @@ namespace NetMicro.Monitoring.Prometheus
         private static readonly Dictionary<string, Counter> Counters = new Dictionary<string, Counter>();
         private static readonly Dictionary<string, Histogram> Histograms = new Dictionary<string, Histogram>();
 
-        private static readonly object gaugesMutex = new object();
-        private static readonly object countersMutex = new object();
-        private static readonly object histogramsMutex = new object();
+        private static readonly object GaugesMutex = new object();
+        private static readonly object CountersMutex = new object();
+        private static readonly object HistogramsMutex = new object();
 
         private static Counter GetCounter(string name)
         {
-            lock (countersMutex)
+            lock (CountersMutex)
             {
                 if (Counters.ContainsKey(name))
                     return Counters[name];
@@ -37,7 +37,7 @@ namespace NetMicro.Monitoring.Prometheus
 
         private static Gauge GetGauge(string name)
         {
-            lock (gaugesMutex)
+            lock (GaugesMutex)
             {
                 if (Gauges.ContainsKey(name))
                     return Gauges[name];

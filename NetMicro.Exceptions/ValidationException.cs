@@ -6,7 +6,6 @@ namespace NetMicro.Exceptions
     public class ValidationException : Exception
     {
         public ValidationException()
-            :base()
         {
         }
 

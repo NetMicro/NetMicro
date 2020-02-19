@@ -1,9 +1,7 @@
 using Autofac;
-using NetMicro.Consul;
 using NetMicro.Consul.NFlags;
-using NetMicro.ServiceBootstrap.Extensions;
 
-namespace NetMicro.ServiceBootstrap.Modules
+namespace NetMicro.Consul.Autofac
 {
     public class ConsulExtensionModule : Module
     {

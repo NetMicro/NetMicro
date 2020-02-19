@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using NetMicro.Bootstrap;
+using Microsoft.Extensions.Logging;
 using NFlags;
 using NFlags.Commands;
 
@@ -25,7 +25,7 @@ namespace NetMicro.ServiceBootstrap
         }
 
         public static CommandConfigurator RegisterServiceCommand<TStartup>(
-            this CommandConfigurator configurator, 
+            this CommandConfigurator configurator,
             string commandName,
             string commandDescription,
             IGenericConfig configuration,
@@ -37,9 +37,9 @@ namespace NetMicro.ServiceBootstrap
                 c => c.ConfigureService<TStartup>(configuration, additionalConfiguration)
             );
         }
-        
+
         public static CommandConfigurator RegisterDefaultServiceCommand<TStartup>(
-            this CommandConfigurator configurator, 
+            this CommandConfigurator configurator,
             string commandName,
             string commandDescription,
             IGenericConfig configuration,
@@ -51,9 +51,9 @@ namespace NetMicro.ServiceBootstrap
                 c => c.ConfigureService<TStartup>(configuration, additionalConfiguration)
             );
         }
-        
+
         private static CommandConfigurator ConfigureService<TStartup>(
-            this CommandConfigurator configurator, 
+            this CommandConfigurator configurator,
             IGenericConfig configuration,
             Action<CommandConfigurator, IGenericConfig> additionalConfiguration = null) where TStartup : class
         {
@@ -89,6 +89,9 @@ namespace NetMicro.ServiceBootstrap
                 )
                 .UseKestrel()
                 .UseStartup<TStartup>()
+                .ConfigureLogging(
+                    builder => builder.AddConsole()
+                )
                 .Build();
 
             host.Run();

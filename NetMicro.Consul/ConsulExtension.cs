@@ -1,8 +1,7 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using NetMicro.Consul;
 
-namespace NetMicro.ServiceBootstrap.Extensions
+namespace NetMicro.Consul
 {
     public class ConsulExtension : IExtension
     {

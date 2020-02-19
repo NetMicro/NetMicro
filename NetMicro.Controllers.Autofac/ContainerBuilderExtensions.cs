@@ -1,4 +1,3 @@
-using System.Buffers;
 using Autofac;
 using NetMicro.Http.Rest;
 using NetMicro.Routing;

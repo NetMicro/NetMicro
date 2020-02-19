@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using NetMicro.Queues.RabbitMQ.NFlags;
 using RabbitMQ.Client;
 
 namespace NetMicro.RabbitMQ.NFlags.Autofac
