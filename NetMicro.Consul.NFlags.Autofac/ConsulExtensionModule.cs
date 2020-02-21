@@ -1,7 +1,6 @@
 using Autofac;
-using NetMicro.Consul.NFlags;
 
-namespace NetMicro.Consul.Autofac
+namespace NetMicro.Consul.NFlags.Autofac
 {
     public class ConsulExtensionModule : Module
     {

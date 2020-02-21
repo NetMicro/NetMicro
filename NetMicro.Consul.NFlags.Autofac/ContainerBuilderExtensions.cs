@@ -1,6 +1,6 @@
 using Autofac;
 
-namespace NetMicro.Consul.Autofac
+namespace NetMicro.Consul.NFlags.Autofac
 {
     public static class ContainerBuilderExtensions
     {

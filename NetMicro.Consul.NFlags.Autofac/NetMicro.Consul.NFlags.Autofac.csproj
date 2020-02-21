@@ -2,7 +2,6 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>NetMicro.Consul.Autofac</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
