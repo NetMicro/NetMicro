@@ -10,6 +10,7 @@ using NetMicro.ErrorHandling.Autofac;
 using NetMicro.Routing.Autofac;
 using NetMicro.Routing.Owin;
 using NetMicro.ServiceBootstrap.Config;
+using NetMicro.ServiceBootstrap.Logging;
 using Configuration = NetMicro.Routing.Configuration;
 
 namespace NetMicro.ServiceBootstrap
@@ -61,6 +62,8 @@ namespace NetMicro.ServiceBootstrap
             builder.RegisterInstance(app);
             builder.RegisterInstance(lifetime);
             builder.RegisterInstance(loggerFactory);
+
+            builder.RegisterCallback(rb => rb.AddRegistrationSource(new LoggerRegistrationSource()));
 
             builder.UseErrorHandling();
             builder.RegisterType<ErrorHandlingConfiguration>().As<IErrorHandlingConfiguration>().SingleInstance();

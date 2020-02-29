@@ -3,6 +3,7 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NetMicro.ServiceBootstrap.Logging;
 using NFlags;
 using NFlags.Commands;
 
@@ -90,7 +91,11 @@ namespace NetMicro.ServiceBootstrap
                 .UseKestrel()
                 .UseStartup<TStartup>()
                 .ConfigureLogging(
-                    builder => builder.AddConsole()
+                    builder => builder.AddNFlagsOutput(c =>
+                    {
+                        c.Output = output;
+                        c.LogLevel = LogLevel.Information;
+                    })
                 )
                 .Build();
 
