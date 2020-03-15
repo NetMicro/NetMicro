@@ -27,17 +27,19 @@ namespace NetMicro.ServiceBootstrap.Logging
                 Guid.NewGuid(),
                 new DelegateActivator(swt.ServiceType, (c, p) =>
                 {
-                    var provider = c.Resolve<ILoggerFactory>();
+                    var loggerFactory = c.Resolve<ILoggerFactory>();
 
-                    var methodInfo = provider
-                        .GetType()
-                        .GetMethods(BindingFlags.Public | BindingFlags.Instance)
+                    var methodInfo = typeof(LoggerFactoryExtensions)
+                        .GetMethods(BindingFlags.Public | BindingFlags.Static)
                         .Single(mi => mi.Name == "CreateLogger" && mi.IsGenericMethod);
-                    
+
                     var method = methodInfo
                         .MakeGenericMethod(swt.ServiceType.GetGenericArguments()[0]);
 
-                    return method.Invoke(provider, new object[0]);
+                    return method.Invoke(loggerFactory, new object[]
+                    {
+                        loggerFactory
+                    });
                 }),
                 new CurrentScopeLifetime(),
                 InstanceSharing.None,
