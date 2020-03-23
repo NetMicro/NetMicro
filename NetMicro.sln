@@ -112,6 +112,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.Consul.NFlags.Auto
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.Monitoring.Prometheus.NFlags.Autofac", "NetMicro.Monitoring.Prometheus.NFlags.Autofac\NetMicro.Monitoring.Prometheus.NFlags.Autofac.csproj", "{824B38A6-B235-4587-87BD-EA3E62F3E0FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.OAuth2", "NetMicro.OAuth2\NetMicro.OAuth2.csproj", "{32F67FC7-D380-40DA-8AEF-16C399346548}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.OAuth2.Google", "NetMicro.OAuth2.Google\NetMicro.OAuth2.Google.csproj", "{D9E78782-179F-41E7-B855-5E78D4A0E302}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.OAuth2.Autofac", "NetMicro.OAuth2.Autofac\NetMicro.OAuth2.Autofac.csproj", "{B676494B-5AB5-40A9-8730-6899DC4369D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.OAuth2.Google.NFlags", "NetMicro.OAuth2.Google.NFlags\NetMicro.OAuth2.Google.NFlags.csproj", "{D7F8E41D-E66B-413D-8131-67F7F5370479}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.OAuth2.Google.NFlags.Autofac", "NetMicro.OAuth2.Google.NFlags.Autofac\NetMicro.OAuth2.Google.NFlags.Autofac.csproj", "{AB281673-20C2-40EC-A9E4-320039182458}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -338,6 +348,26 @@ Global
 		{824B38A6-B235-4587-87BD-EA3E62F3E0FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{824B38A6-B235-4587-87BD-EA3E62F3E0FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{824B38A6-B235-4587-87BD-EA3E62F3E0FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32F67FC7-D380-40DA-8AEF-16C399346548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32F67FC7-D380-40DA-8AEF-16C399346548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32F67FC7-D380-40DA-8AEF-16C399346548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32F67FC7-D380-40DA-8AEF-16C399346548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9E78782-179F-41E7-B855-5E78D4A0E302}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9E78782-179F-41E7-B855-5E78D4A0E302}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9E78782-179F-41E7-B855-5E78D4A0E302}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9E78782-179F-41E7-B855-5E78D4A0E302}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B676494B-5AB5-40A9-8730-6899DC4369D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B676494B-5AB5-40A9-8730-6899DC4369D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B676494B-5AB5-40A9-8730-6899DC4369D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B676494B-5AB5-40A9-8730-6899DC4369D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7F8E41D-E66B-413D-8131-67F7F5370479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7F8E41D-E66B-413D-8131-67F7F5370479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7F8E41D-E66B-413D-8131-67F7F5370479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7F8E41D-E66B-413D-8131-67F7F5370479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB281673-20C2-40EC-A9E4-320039182458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB281673-20C2-40EC-A9E4-320039182458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB281673-20C2-40EC-A9E4-320039182458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB281673-20C2-40EC-A9E4-320039182458}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A6DFEF52-3B6D-4252-BCCF-F958B178002D} = {5EC8C9BA-7826-4AC3-B964-A765ED9F48DE}

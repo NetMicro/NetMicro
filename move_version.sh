@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 
-if [ "$#" -ne 1 ]; 
-    then echo "illegal number of parameters"
-    exit 1
-fi
+tag=$(git describe --tags $(git rev-list --tags --max-count=1))
 
-git tag $1 -d
-git tag $1
+git tag $tag -d
+git tag $tag
 rm -rf *.nupkg
 ./pack.sh
 rm -rf ~/.nuget/packages/netmicro*

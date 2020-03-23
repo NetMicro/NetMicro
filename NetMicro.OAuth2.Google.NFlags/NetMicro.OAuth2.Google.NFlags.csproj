@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NetMicro.OAuth2.Google\NetMicro.OAuth2.Google.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NFlags" Version="1.8.0" />
+    </ItemGroup>
+
+</Project>
