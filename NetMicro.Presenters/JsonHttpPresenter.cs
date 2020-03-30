@@ -29,5 +29,17 @@ namespace NetMicro.Presenters
                 await _response.WriteBodyAsync(JsonConvert.SerializeObject(data));
             }
         }
+
+        public async Task PresentError(HttpStatusCode statusCode, string error, params string[] parameters)
+        {
+            await Present(new ErrorResponse
+                {
+                    Status = (int)statusCode,
+                    Error = error,
+                    Paramaters = parameters
+                },
+                statusCode
+            );
+        }
     }
 }
