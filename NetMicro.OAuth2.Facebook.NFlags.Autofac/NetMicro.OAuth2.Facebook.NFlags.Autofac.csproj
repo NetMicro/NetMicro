@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac" Version="5.1.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NetMicro.OAuth2.Facebook.NFlags\NetMicro.OAuth2.Facebook.NFlags.csproj" />
+      <ProjectReference Include="..\NetMicro.OAuth2.Facebook\NetMicro.OAuth2.Facebook.csproj" />
+    </ItemGroup>
+
+</Project>
