@@ -10,7 +10,7 @@ namespace NetMicro.Http
         {
             var mimeTypes = new List<string>();
             if (request.Headers.ContainsKey("Accept"))
-                foreach (var accept in request.Headers["Accept"])
+                foreach (var accept in request.Headers["Accept"].Where(value => value != "*/*"))
                     mimeTypes.AddRange(accept.Split(","));
             else if (request.Headers.ContainsKey("Content-Type"))
                 mimeTypes.AddRange(request.GetMimeTypes());
