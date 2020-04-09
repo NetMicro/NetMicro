@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Net.Mime;
+using Microsoft.Extensions.Logging;
 using NetMicro.Http;
 using NetMicro.Routing;
 
@@ -11,7 +12,8 @@ namespace NetMicro.ErrorHandling
         public static void UseRestErrorHandling(
             this IMiddlewareSupport middlewareSupport,
             IErrorHandlingConfiguration configuration,
-            ExceptionStatusCodeMapper mapper)
+            ExceptionStatusCodeMapper mapper,
+            ILogger<ErrorHandlingModule> logger)
         {
 
             middlewareSupport.Use(async (context, next) =>
@@ -22,6 +24,7 @@ namespace NetMicro.ErrorHandling
                 }
                 catch (Exception e)
                 {
+                    logger.LogError(e, $"Error during processing request: {context.Request.Method} {context.Request.Url}");
                     var mimeTypes = context.Request.GetResponseMimeTypesPriority(new[]
                     {
                         MediaTypeNames.Application.Json,
