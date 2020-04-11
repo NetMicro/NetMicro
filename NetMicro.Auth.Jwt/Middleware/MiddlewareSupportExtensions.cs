@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using NetMicro.Http;
 using NetMicro.Routing;
 
@@ -9,7 +10,8 @@ namespace NetMicro.Auth.Jwt.Middleware
 {
     public static class MiddlewareSupportExtensions
     {
-        public static void JwtAuth(this IMiddlewareSupport middlewareSupport, ITokenDecoder<JwtToken> tokenDecoder, Func<Request, bool> excludeFilter = null)
+        public static void JwtAuth(this IMiddlewareSupport middlewareSupport, ITokenDecoder<JwtToken> tokenDecoder,
+            ILogger logger, Func<Request, bool> excludeFilter = null)
         {
             middlewareSupport.Use(async (context, next) =>
             {
@@ -50,8 +52,9 @@ namespace NetMicro.Auth.Jwt.Middleware
 
                     context.Extensions.Register(new Session.Session(payload.username));
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
+                    logger.LogError(e, $"Request {context.Request.Method} {context.Request.Url} unauthorized!");
                     await Task.Run(() => context.Response.StatusCode = HttpStatusCode.Unauthorized);
                     return;
                 }
