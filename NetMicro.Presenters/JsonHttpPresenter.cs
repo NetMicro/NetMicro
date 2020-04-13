@@ -30,9 +30,9 @@ namespace NetMicro.Presenters
             }
         }
 
-        public async Task PresentError(HttpStatusCode statusCode, string error, params string[] parameters)
+        public async Task PresentMessage(HttpStatusCode statusCode, string error, params string[] parameters)
         {
-            await Present(new ErrorResponse
+            await Present(new MessageResponse
                 {
                     Status = (int)statusCode,
                     Error = error,

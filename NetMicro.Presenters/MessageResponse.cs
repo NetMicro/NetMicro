@@ -1,6 +1,6 @@
 namespace NetMicro.Presenters
 {
-    public class ErrorResponse
+    public class MessageResponse
     {
         public int Status;
         public string Error;

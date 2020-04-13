@@ -24,4 +24,8 @@
       <ProjectReference Include="..\NetMicro\NetMicro.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Config" />
+    </ItemGroup>
+
 </Project>
