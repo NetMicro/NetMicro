@@ -6,7 +6,7 @@ namespace NetMicro.Auth.Jwt.Autofac
 {
     public static class ContainerBuilderExtensions
     {
-        public const string TokenGenerator = "TokenHenerator";
+        public const string TokenGenerator = "TokenGenerator";
         public const string TokenDecoder = "TokenDecoder";
 
         private const string TokenPrivateKeyProvider = "TokenPrivateKeyProvider";

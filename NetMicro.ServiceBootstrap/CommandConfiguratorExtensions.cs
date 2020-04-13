@@ -3,6 +3,7 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NetMicro.ErrorHandling.NFlags;
 using NetMicro.ServiceBootstrap.Logging;
 using NFlags;
 using NFlags.Commands;
@@ -11,20 +12,6 @@ namespace NetMicro.ServiceBootstrap
 {
     public static class CommandConfiguratorExtensions
     {
-        private const string DevelopmentGroup = "Development";
-
-        public static CommandConfigurator RegisterDevelopment(this CommandConfigurator commandConfigurator)
-        {
-            return commandConfigurator
-                .RegisterFlag(b => b
-                    .Name(DevelopmentFlags.DisableSecurity)
-                    .Description("Disables security")
-                    .ConfigPath("Development:DisableSecurity")
-                    .EnvironmentVariable("DEVELOPMENT_DISABLE_SECURITY")
-                    .Group(DevelopmentGroup)
-                );
-        }
-
         public static CommandConfigurator RegisterServiceCommand<TStartup>(
             this CommandConfigurator configurator,
             string commandName,
@@ -65,7 +52,7 @@ namespace NetMicro.ServiceBootstrap
                     .EnvironmentVariable("PORT")
                     .DefaultValue(5000)
                 )
-                .RegisterDevelopment()
+                .RegisterErrorHandling()
                 .SetExecute((commandArgs, output) =>
                 {
                     RunKestrelHost<TStartup>(commandArgs, configuration, output);

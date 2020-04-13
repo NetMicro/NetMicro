@@ -7,9 +7,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NetMicro.ErrorHandling;
 using NetMicro.ErrorHandling.Autofac;
+using NetMicro.ErrorHandling.NFlags;
 using NetMicro.Routing.Autofac;
 using NetMicro.Routing.Owin;
-using NetMicro.ServiceBootstrap.Config;
 using NetMicro.ServiceBootstrap.Logging;
 using Configuration = NetMicro.Routing.Configuration;
 
@@ -28,11 +28,10 @@ namespace NetMicro.ServiceBootstrap
         {
             var container = BuildContainer(configuration, app, env, loggerFactory, lifetime);
 
-            UseNetMicro(container, app, lifetime, loggerFactory);
+            UseNetMicro(container, app);
         }
 
-        private static void UseNetMicro(IContainer container, IApplicationBuilder app, IHostApplicationLifetime lifetime,
-            ILoggerFactory loggerFactory)
+        private static void UseNetMicro(IContainer container, IApplicationBuilder app)
         {
             var extensions = container.Resolve<IEnumerable<IExtension>>().ToArray();
             foreach (var extension in extensions)
@@ -67,8 +66,6 @@ namespace NetMicro.ServiceBootstrap
 
             builder.UseErrorHandling();
             builder.RegisterType<ErrorHandlingConfiguration>().As<IErrorHandlingConfiguration>().SingleInstance();
-
-            builder.RegisterType<NFlagsDevelopmentConfiguration>().As<IDevelopmentConfiguration>().SingleInstance();
 
             ConfigureContainer(builder);
 

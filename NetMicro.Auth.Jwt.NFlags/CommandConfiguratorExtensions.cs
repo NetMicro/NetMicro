@@ -9,6 +9,13 @@ namespace NetMicro.Auth.Jwt.NFlags
         public static CommandConfigurator RegisterAuth(this CommandConfigurator commandConfigurator)
         {
             return commandConfigurator
+                .RegisterFlag(b => b
+                    .Name(AuthOptions.DisableAuth)
+                    .Description("Disables auth")
+                    .ConfigPath("Auth:DisableAuth")
+                    .EnvironmentVariable("DEVELOPMENT_DISABLE_AUTH")
+                    .Group(AuthorizationGroup)
+                )
                 .RegisterToken(AuthOptions.AccessTokenName)
                 .RegisterToken(AuthOptions.RefreshTokenName);
 

@@ -11,6 +11,7 @@ namespace NetMicro.Auth.Jwt.NFlags
             _commandArgs = commandArgs;
         }
 
+        public bool DisableAuth => _commandArgs.GetFlag(AuthOptions.DisableAuth);
         public string AccessTokenPublicKey => _commandArgs.GetOption<string>(AuthOptions.AccessTokenPublicKey);
         public string AccessTokenPrivateKey => _commandArgs.GetOption<string>(AuthOptions.AccessTokenPrivateKey);
         public string AccessTokenSecret => _commandArgs.GetOption<string>(AuthOptions.AccessTokenSecret);

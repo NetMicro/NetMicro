@@ -11,12 +11,12 @@ namespace NetMicro.Auth.Jwt
         public static void EnableJwtSecurity(
             this IMiddlewareSupport middlewareSupport,
             ITokenDecoder<JwtToken> tokenDecoder,
-            IDevelopmentConfiguration developmentConfiguration,
+            IAuthConfiguration authConfiguration,
             ILogger logger,
             Func<Request, bool> excludeFilter = null
         )
         {
-            if (!developmentConfiguration.DisableSecurity)
+            if (!authConfiguration.DisableAuth)
                 middlewareSupport.JwtAuth(tokenDecoder, logger, excludeFilter);
         }
     }

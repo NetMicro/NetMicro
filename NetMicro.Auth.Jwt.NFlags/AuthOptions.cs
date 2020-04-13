@@ -16,5 +16,21 @@ namespace NetMicro.Auth.Jwt.NFlags
         public const string RefreshTokenPublicKey = "refresh-token-public-key";
         public const string RefreshTokenPrivateKey = "refresh-token-private-key";
         public const string RefreshTokenSecret = "refresh-token-secret";
+        public const string DisableAuth = "disable-auth";
+
+        public static string CreateTokenPublicKeyOptionName(string tokenName)
+        {
+            return tokenName.ToLower() + TokenPublicKeySuffix;
+        }
+
+        public static string CreateTokenPrivateKeyOptionName(string tokenName)
+        {
+            return tokenName.ToLower() + TokenPrivateKeySuffix;
+        }
+
+        public static string CreateTokenSecretOptionName(string tokenName)
+        {
+            return tokenName.ToLower() + TokenSecretSuffix;
+        }
     }
 }
