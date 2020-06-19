@@ -162,6 +162,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Google", "Google", "{B1824A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.ErrorHandling.NFlags", "NetMicro.ErrorHandling.NFlags\NetMicro.ErrorHandling.NFlags.csproj", "{DCB23A0F-7F31-4DDF-9705-DBA0B09D8AC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetMicro.DDD", "NetMicro.DDD\NetMicro.DDD.csproj", "{E7C0741A-47AE-4BFC-A302-814F25CF6948}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -424,6 +426,10 @@ Global
 		{DCB23A0F-7F31-4DDF-9705-DBA0B09D8AC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCB23A0F-7F31-4DDF-9705-DBA0B09D8AC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCB23A0F-7F31-4DDF-9705-DBA0B09D8AC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7C0741A-47AE-4BFC-A302-814F25CF6948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7C0741A-47AE-4BFC-A302-814F25CF6948}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7C0741A-47AE-4BFC-A302-814F25CF6948}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7C0741A-47AE-4BFC-A302-814F25CF6948}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A6DFEF52-3B6D-4252-BCCF-F958B178002D} = {5EC8C9BA-7826-4AC3-B964-A765ED9F48DE}
