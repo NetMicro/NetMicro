@@ -14,8 +14,8 @@ namespace NetMicro.ServiceBootstrap.Logging
     internal class LoggerRegistrationSource : IRegistrationSource
     {
         public IEnumerable<IComponentRegistration> RegistrationsFor(
-            Service service,
-            Func<Service, IEnumerable<IComponentRegistration>> registrationAccessor)
+            Service service, 
+            Func<Service, IEnumerable<ServiceRegistration>> registrationAccessor)
         {
             var swt = service as IServiceWithType;
             if (swt == null || !swt.ServiceType.IsGenericType || swt.ServiceType.GetGenericTypeDefinition() != typeof(ILogger<>))

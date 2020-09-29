@@ -33,7 +33,7 @@ namespace NetMicro.Events.RabbitMQ
                     consumer.Received += (model, ea) =>
                     {
                         var body = ea.Body;
-                        var message = JsonConvert.DeserializeObject<TEvent>(Encoding.UTF8.GetString(body));
+                        var message = JsonConvert.DeserializeObject<TEvent>(Encoding.UTF8.GetString(body.ToArray()));
                         messageReceived(message);
                     };
 

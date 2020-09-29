@@ -36,7 +36,7 @@ namespace NetMicro.Queues.Kafka
                             try
                             {
                                 var cr = c.Consume(cts.Token);
-                                messageReceived(cr.Value);
+                                messageReceived(cr.Message.Value);
                             }
                             catch (ConsumeException e)
                             {
