@@ -38,7 +38,7 @@ namespace NetMicro.ServiceBootstrap
                 extension.Extend();
 
             var startupActions = container.Resolve<IEnumerable<IStartupAction>>().ToArray();
-            foreach (var startupAction in startupActions)
+            foreach (var startupAction in startupActions.OrderBy(sa => sa.Priority))
                 startupAction.Execute();
 
             app.UseNetMicro(new Configuration

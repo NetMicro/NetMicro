@@ -8,7 +8,7 @@ namespace NetMicro.Routing.Autofac
     {
         private readonly ModuleBootstrapper _moduleBootstrapper = new ModuleBootstrapper();
 
-        public AutofacBootstrapper(IContainer container)
+        public AutofacBootstrapper(IComponentContext container)
         {
             foreach (var module in container.Resolve<IEnumerable<IModule>>())
                 _moduleBootstrapper.RegisterModule(module);
